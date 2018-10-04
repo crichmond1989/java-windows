@@ -3,7 +3,7 @@
 FROM microsoft/nanoserver:sac2016
 
 RUN powershell -Command \
-    wget 'http://javadl.oracle.com/webapps/download/AutoDL?BundleId=210185' -Outfile 'C:/jreinstaller.exe'; \
+    Invoke-WebRequest 'http://javadl.oracle.com/webapps/download/AutoDL?BundleId=210185' -Outfile 'C:/jreinstaller.exe'; \
     Start-Process -filepath C:/jreinstaller.exe -passthru -wait -argumentlist "/s,INSTALLDIR=c:/Java/jre1.8.0_91"; \
     del C:/jreinstaller.exe
 
