@@ -7,5 +7,11 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- script: docker-compose build --pull
-  displayName: 'docker build'
+  - script: docker-compose build --pull
+    displayName: 'docker build'
+
+  - script: docker login -u crichmond1989 -p $(dockerToken)
+    displayName: 'docker login'
+
+  - script: docker-compose push
+    displayName: 'docker push'
