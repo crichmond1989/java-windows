@@ -1,0 +1,5 @@
+version: "3"
+services:
+  jre1.8:
+    image: crichmond1989/java-windows:1.8
+    build: ./jre1.8
